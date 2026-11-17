@@ -74,7 +74,7 @@ export default function NewsletterSection() {
                 }}
                 placeholder="Enter your email address"
                 aria-label="Email address for ORRÉ newsletter"
-                className="w-full px-5 py-4 bg-[#300914] border border-[#541326] focus:border-[#B49A70] text-[#FAF7F0] placeholder-[#FAF7F0]/40 text-xs font-sans outline-none transition-colors"
+                className="w-full px-5 py-4 bg-[#300914] border border-[#541326] focus:border-[#B49A70] text-[#FAF7F0] placeholder-[#FAF7F0]/40 text-base sm:text-xs font-sans outline-none transition-colors"
               />
               {status === "error" && (
                 <p className="absolute -bottom-6 left-0 text-[10px] text-red-400 font-sans tracking-wide">

@@ -17,11 +17,11 @@ export default function Footer() {
       {/* Main Footer Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
         {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 pb-16 border-b border-[#541326]/60">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 sm:gap-8 lg:gap-8 pb-16 border-b border-[#541326]/60">
           {/* Brand Column (Spans 2 columns on lg) */}
-          <div className="lg:col-span-2 pr-0 lg:pr-12">
+          <div className="sm:col-span-2 lg:col-span-2 pr-0 lg:pr-12">
             <Link href="/" className="inline-block group mb-6">
-              <span className="font-display text-4xl sm:text-5xl tracking-[0.2em] text-[#F3EBDD] font-normal group-hover:text-[#B49A70] transition-colors">
+              <span className="font-display text-3xl sm:text-5xl tracking-[0.2em] text-[#F3EBDD] font-normal group-hover:text-[#B49A70] transition-colors">
                 ORRÉ
               </span>
               <span className="block text-[9px] uppercase tracking-[0.38em] text-[#D8C7AE]/70 mt-1">
@@ -29,7 +29,7 @@ export default function Footer() {
               </span>
             </Link>
 
-            <p className="font-editorial italic text-xl text-[#D8C7AE] mb-4 leading-relaxed max-w-md font-normal">
+            <p className="font-editorial italic text-lg sm:text-xl text-[#D8C7AE] mb-4 leading-relaxed max-w-md font-normal">
               “Elegance, without excess.”
             </p>
 
@@ -55,10 +55,10 @@ export default function Footer() {
 
           {/* Column 2: Collections */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.28em] text-[#B49A70] font-sans font-medium mb-5">
+            <h4 className="text-[11px] uppercase tracking-[0.28em] text-[#B49A70] font-sans font-medium mb-4 sm:mb-5">
               Collections
             </h4>
-            <ul className="space-y-3 text-xs font-sans text-[#FAF7F0]/75">
+            <ul className="space-y-2.5 sm:space-y-3 text-xs font-sans text-[#FAF7F0]/75">
               {FOOTER_SECTIONS.explorations.map((item) => (
                 <li key={item.label}>
                   <Link
@@ -74,10 +74,10 @@ export default function Footer() {
 
           {/* Column 3: The Maison */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.28em] text-[#B49A70] font-sans font-medium mb-5">
+            <h4 className="text-[11px] uppercase tracking-[0.28em] text-[#B49A70] font-sans font-medium mb-4 sm:mb-5">
               The Maison
             </h4>
-            <ul className="space-y-3 text-xs font-sans text-[#FAF7F0]/75">
+            <ul className="space-y-2.5 sm:space-y-3 text-xs font-sans text-[#FAF7F0]/75">
               {FOOTER_SECTIONS.maison.map((item) => (
                 <li key={item.label}>
                   <Link
@@ -93,10 +93,10 @@ export default function Footer() {
 
           {/* Column 4: Journal & Social */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.28em] text-[#B49A70] font-sans font-medium mb-5">
+            <h4 className="text-[11px] uppercase tracking-[0.28em] text-[#B49A70] font-sans font-medium mb-4 sm:mb-5">
               The Journal
             </h4>
-            <ul className="space-y-3 text-xs font-sans text-[#FAF7F0]/75 mb-8">
+            <ul className="space-y-2.5 sm:space-y-3 text-xs font-sans text-[#FAF7F0]/75 mb-6 sm:mb-8">
               {FOOTER_SECTIONS.journal.map((item) => (
                 <li key={item.label}>
                   <Link
@@ -109,7 +109,7 @@ export default function Footer() {
               ))}
             </ul>
 
-            <h4 className="text-[11px] uppercase tracking-[0.28em] text-[#B49A70] font-sans font-medium mb-3">
+            <h4 className="text-[11px] uppercase tracking-[0.28em] text-[#B49A70] font-sans font-medium mb-2.5">
               Follow ORRÉ
             </h4>
             <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs font-sans text-[#FAF7F0]/65">
@@ -129,12 +129,12 @@ export default function Footer() {
         </div>
 
         {/* Monumental Closing Statement */}
-        <div className="py-20 md:py-32 text-center border-b border-[#541326]/60 relative">
-          <p className="text-[10px] md:text-xs uppercase tracking-[0.45em] text-[#B49A70]/80 font-sans mb-4">
+        <div className="py-16 sm:py-24 md:py-32 text-center border-b border-[#541326]/60 relative">
+          <p className="text-[10px] md:text-xs uppercase tracking-[0.45em] text-[#B49A70]/80 font-sans mb-3 sm:mb-4">
             Épilogue
           </p>
 
-          <h2 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-[0.06em] md:tracking-[0.12em] text-[#F3EBDD]/95 font-light leading-none">
+          <h2 className="font-display text-3xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-[0.04em] sm:tracking-[0.06em] md:tracking-[0.12em] text-[#F3EBDD]/95 font-light leading-[1.08] sm:leading-none">
             UNTIL THE NEXT
             <br />
             <span className="font-editorial italic text-[#D8C7AE]">
@@ -143,12 +143,12 @@ export default function Footer() {
           </h2>
 
           {/* Refined Back-to-Top Interaction with Rising Vertical Hairline */}
-          <div className="mt-12 flex flex-col items-center justify-center gap-3">
+          <div className="mt-10 sm:mt-12 flex flex-col items-center justify-center gap-3">
             <div className="w-[1px] h-8 bg-gradient-to-t from-transparent via-[#B49A70] to-[#FAF7F0] animate-pulse" />
             <button
               onClick={scrollToTop}
               data-cursor="SUMMIT"
-              className="group inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-[#D8C7AE]/70 hover:text-[#FAF7F0] transition-colors duration-300 py-2.5 px-6 border border-[#541326] hover:border-[#B49A70]"
+              className="group inline-flex items-center gap-3 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#D8C7AE]/70 hover:text-[#FAF7F0] transition-colors duration-300 py-2.5 px-6 border border-[#541326] hover:border-[#B49A70] cursor-pointer"
             >
               <span>Return to Summit</span>
               <ArrowUp className="w-3.5 h-3.5 text-[#B49A70] group-hover:-translate-y-1 transition-transform duration-300" />
@@ -157,9 +157,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] font-sans text-[#FAF7F0]/40">
+        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] font-sans text-[#FAF7F0]/40 text-center sm:text-left">
           <p>© {new Date().getFullYear()} ORRÉ. All Rights Reserved.</p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap justify-center sm:justify-end items-center gap-4 sm:gap-6">
             <Link
               href="/contact"
               className="hover:text-[#FAF7F0]/70 transition-colors"

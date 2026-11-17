@@ -88,8 +88,94 @@ export default function CraftSection() {
           </p>
         </div>
 
-        {/* Interactive Craft Study Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        {/* MOBILE / TABLET VIEW (< 1024px): Seamless Touch-Optimized Architecture */}
+        <div className="block lg:hidden space-y-6">
+          {/* Horizontal Touch Scrollable Pillar Selector */}
+          <div>
+            <span className="text-[10px] uppercase tracking-[0.3em] text-[#B49A70] font-sans font-medium block mb-3">
+              Select Pillar to Inspect Savoir-Faire
+            </span>
+            <div className="flex overflow-x-auto no-scrollbar gap-2.5 pb-2 -mx-4 px-4">
+              {CRAFT_PILLARS.map((pillar) => {
+                const isActive = activePillar.id === pillar.id;
+                return (
+                  <button
+                    key={pillar.id}
+                    onClick={() => setActivePillar(pillar)}
+                    className={`shrink-0 py-3 px-4 border text-left transition-all duration-300 font-sans cursor-pointer ${
+                      isActive
+                        ? "bg-[#300914] border-[#B49A70] shadow-md text-[#FAF7F0]"
+                        : "bg-[#21060D]/60 border-[#541326]/50 text-[#FAF7F0]/70 hover:border-[#541326]"
+                    }`}
+                  >
+                    <div className="flex items-center gap-1.5 text-[9px] uppercase tracking-widest text-[#D8C7AE]/70 mb-0.5">
+                      <span>{pillar.subtitle}</span>
+                      {isActive && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#B49A70]" />
+                      )}
+                    </div>
+                    <div className="text-xs font-display font-medium text-[#FAF7F0] whitespace-nowrap">
+                      {pillar.title.split("&")[0].trim()}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Inspection Image Stage for Mobile */}
+          <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#300914] border border-[#541326] shadow-xl">
+            <Image
+              key={activePillar.id}
+              src={activePillar.image}
+              alt={activePillar.title}
+              fill
+              className="object-cover filter brightness-[0.92] contrast-[1.08] transition-all duration-500"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#21060D]/80 via-transparent to-transparent pointer-events-none" />
+
+            {/* Technical Annotation Badge */}
+            <div className="absolute top-3 left-3 right-3 flex items-center gap-2 bg-[#21060D]/90 backdrop-blur-xs text-[9px] uppercase tracking-wider text-[#D8C7AE] px-2.5 py-1.5 border border-[#B49A70]/40">
+              <Compass className="w-3.5 h-3.5 text-[#B49A70] shrink-0" />
+              <span className="truncate">{activePillar.annotation}</span>
+            </div>
+          </div>
+
+          {/* Clean Technical Specification Card Below Image */}
+          <div className="p-5 bg-[#300914] border border-[#541326]/60 shadow-lg space-y-4">
+            <div className="flex items-start justify-between gap-4 border-b border-[#541326]/60 pb-3">
+              <div>
+                <span className="text-[9px] uppercase tracking-[0.3em] text-[#B49A70] font-sans block mb-1">
+                  Atelier Specification
+                </span>
+                <h4 className="font-display text-xl text-[#FAF7F0] font-normal leading-tight">
+                  {activePillar.title}
+                </h4>
+                <p className="font-editorial italic text-xs text-[#D8C7AE] mt-0.5">
+                  {activePillar.frenchTitle}
+                </p>
+              </div>
+
+              {/* Metric Callout */}
+              <div className="text-right shrink-0 p-2.5 bg-[#21060D] border border-[#B49A70]/30">
+                <div className="font-display text-lg text-[#B49A70]">
+                  {activePillar.metric}
+                </div>
+                <div className="text-[8px] uppercase tracking-widest text-[#FAF7F0]/60 font-sans">
+                  {activePillar.metricLabel}
+                </div>
+              </div>
+            </div>
+
+            <p className="font-sans text-xs text-[#FAF7F0]/80 leading-relaxed font-light">
+              {activePillar.description}
+            </p>
+          </div>
+        </div>
+
+        {/* DESKTOP VIEW (>= 1024px): Side-by-Side Monumental Layout */}
+        <div className="hidden lg:grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Interactive Selector List (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
             <span className="text-[10px] uppercase tracking-[0.3em] text-[#B49A70] font-sans font-medium block mb-2">

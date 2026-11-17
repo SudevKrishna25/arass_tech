@@ -237,39 +237,69 @@ export default function PhilosophySection() {
         </div>
       </div>
 
-      {/* MOBILE / TABLET ADAPTATION (CLEAN STACKED VIEW) */}
+      {/* MOBILE / TABLET ADAPTATION (CLEAN STACKED EDITORIAL VIEW) */}
       <div className="lg:hidden py-16 px-4 sm:px-6 space-y-16">
-        <div className="border-b border-[#541326]/20 pb-4 mb-8">
+        <div className="border-b border-[#541326]/20 pb-5">
           <SectionLabel number="02" label="Philosophie de la Maison" />
-          <h2 className="font-display text-4xl sm:text-5xl font-light text-[#21060D] mt-2">
-            FORM. FEELING. FOREVER.
+          <h2 className="font-display text-2xl sm:text-4xl font-light text-[#21060D] mt-2 tracking-tight">
+            FORM • FEELING • FOREVER.
           </h2>
+          <p className="font-editorial italic text-base sm:text-lg text-[#762D42] mt-1">
+            “The trilogy of considered sartorial permanence.”
+          </p>
         </div>
 
-        {PHILOSOPHY_STEPS.map((step) => (
-          <div key={step.step} className="space-y-4">
-            <div className="relative aspect-[4/5] w-full overflow-hidden shadow-xl bg-[#21060D]">
-              <Image
-                src={step.image}
-                alt={step.word}
-                fill
-                className="object-cover"
-                sizes="100vw"
-              />
-              <div className="absolute top-3 left-3 bg-[#21060D]/80 text-[#FAF7F0] text-[9px] uppercase tracking-widest px-2.5 py-1">
-                {step.step} • {step.word}
+        <div className="space-y-14">
+          {PHILOSOPHY_STEPS.map((step) => (
+            <div key={step.step} className="space-y-4 border-b border-[#D8C7AE]/60 pb-12">
+              <div className="relative aspect-[4/5] w-full overflow-hidden shadow-xl bg-[#21060D] border border-[#541326]/20">
+                <Image
+                  src={step.image}
+                  alt={step.word}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                />
+                <div className="absolute top-3 left-3 bg-[#21060D]/85 backdrop-blur-xs text-[#FAF7F0] text-[9px] uppercase tracking-widest px-2.5 py-1 font-sans border border-[#B49A70]/30">
+                  Chapitre {step.step} • {step.word}
+                </div>
+
+                <div className="absolute bottom-3 left-3 right-3 flex justify-between items-center text-xs font-editorial italic text-[#FAF7F0] bg-gradient-to-t from-[#21060D]/90 via-[#21060D]/50 to-transparent p-2">
+                  <span>{step.subtitle}</span>
+                  <span className="font-sans text-[9px] uppercase tracking-widest text-[#B49A70]">
+                    Paris
+                  </span>
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <span className="text-[10px] uppercase tracking-[0.25em] text-[#762D42] font-sans font-medium block mb-1">
+                  {step.subtitle}
+                </span>
+
+                <h3 className="font-display text-3xl text-[#21060D] font-light">
+                  {step.word}
+                </h3>
+
+                <p className="font-editorial italic text-lg sm:text-xl text-[#541326] mt-1 mb-2">
+                  {step.quote}
+                </p>
+
+                <p className="font-sans text-xs sm:text-sm text-[#211719]/80 leading-relaxed font-light mb-4">
+                  {step.description}
+                </p>
+
+                <Link
+                  href="/maison"
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#541326] hover:text-[#21060D] font-medium font-sans border-b border-[#541326]/40 pb-1 transition-colors"
+                >
+                  <span>Explore The Full Monograph</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
             </div>
-
-            <h3 className="font-display text-3xl text-[#21060D]">{step.word}</h3>
-            <p className="font-editorial italic text-lg text-[#541326]">
-              {step.quote}
-            </p>
-            <p className="font-sans text-xs text-[#211719]/80 leading-relaxed font-light">
-              {step.description}
-            </p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

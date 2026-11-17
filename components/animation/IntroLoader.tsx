@@ -170,7 +170,7 @@ export default function IntroLoader({
 
         <h1
           ref={wordmarkRef}
-          className="font-display text-5xl md:text-7xl lg:text-9xl text-[#F3EBDD] font-light leading-none select-none"
+          className="font-display text-4xl sm:text-7xl lg:text-9xl text-[#F3EBDD] font-light leading-none select-none"
         >
           ORRÉ
         </h1>
@@ -178,12 +178,12 @@ export default function IntroLoader({
         {/* Champagne Center Line */}
         <div
           ref={lineRef}
-          className="w-32 md:w-48 h-[1px] bg-gradient-to-r from-transparent via-[#B49A70] to-transparent my-5"
+          className="w-24 sm:w-36 md:w-48 h-[1px] bg-gradient-to-r from-transparent via-[#B49A70] to-transparent my-4 sm:my-5"
         />
 
         <p
           ref={subtitleRef}
-          className="font-editorial italic text-base md:text-2xl text-[#D8C7AE] tracking-[0.25em]"
+          className="font-editorial italic text-xs sm:text-base md:text-2xl text-[#D8C7AE] tracking-[0.16em] sm:tracking-[0.25em]"
         >
           AN EXPRESSION OF ELEGANCE.
         </p>

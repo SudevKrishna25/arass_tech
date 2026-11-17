@@ -50,13 +50,13 @@ export default function ProductShowcase() {
         </div>
 
         {/* Category Filters */}
-        <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-16 pb-4 border-b border-[#D8C7AE]/50">
+        <div className="flex overflow-x-auto no-scrollbar gap-2 sm:gap-3 mb-10 sm:mb-16 pb-3 sm:pb-4 border-b border-[#D8C7AE]/50 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap">
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
               data-cursor="SELECT"
-              className={`text-xs uppercase tracking-[0.25em] py-2 px-4 transition-all duration-300 font-sans cursor-pointer ${
+              className={`shrink-0 text-[11px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] py-2 px-3.5 sm:px-4 transition-all duration-300 font-sans cursor-pointer whitespace-nowrap ${
                 activeCategory === cat
                   ? "bg-[#541326] text-[#FAF7F0] font-medium shadow-md"
                   : "bg-transparent text-[#211719]/60 hover:text-[#211719] hover:bg-[#D8C7AE]/20"
@@ -68,7 +68,7 @@ export default function ProductShowcase() {
         </div>
 
         {/* Editorial Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 lg:gap-x-8 gap-y-12 lg:gap-y-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 gap-y-10 sm:gap-y-16">
           {filteredProducts.map((product) => (
             <div
               key={product.id}

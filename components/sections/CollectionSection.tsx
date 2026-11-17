@@ -212,23 +212,33 @@ export default function CollectionSection() {
 
       {/* MOBILE TOUCH-FRIENDLY RUNWAY */}
       <div className="lg:hidden py-16 px-4 sm:px-6 space-y-12">
-        <div className="border-b border-[#541326]/50 pb-4">
+        <div className="border-b border-[#541326]/50 pb-5">
           <SectionLabel number="03" label="Les Collections" theme="dark" />
-          <h2 className="font-display text-4xl sm:text-5xl font-light text-[#FAF7F0] mt-2">
-            THE COLLECTION
+          <h2 className="font-display text-3xl sm:text-5xl font-light text-[#FAF7F0] mt-2">
+            THE COLLECTION.
           </h2>
-          <p className="font-editorial italic text-lg text-[#D8C7AE] mt-1">
-            A curated expression of style and individuality.
+          <p className="font-editorial italic text-base sm:text-lg text-[#D8C7AE] mt-1">
+            “A curated expression of style and individuality.”
           </p>
+          <div className="pt-3">
+            <Link
+              href="/collections"
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#B49A70] hover:text-[#FAF7F0] transition-colors"
+            >
+              <span>Explore Complete Archives</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </div>
 
-        <div className="space-y-12">
+        <div className="space-y-14">
           {COLLECTIONS.map((col, idx) => (
             <div
               key={col.id}
               className="space-y-4 border-b border-[#541326]/40 pb-10"
             >
-              <div className="relative aspect-[3/4] w-full overflow-hidden shadow-xl bg-[#300914]">
+              {/* Runway Image Frame */}
+              <div className="relative aspect-[3/4] w-full overflow-hidden shadow-2xl bg-[#300914] border border-[#541326]/60">
                 <Image
                   src={col.image}
                   alt={col.title}
@@ -236,26 +246,72 @@ export default function CollectionSection() {
                   className="object-cover"
                   sizes="100vw"
                 />
-                <div className="absolute top-3 left-3 bg-[#FAF7F0]/90 text-[#21060D] text-[9px] uppercase tracking-widest px-2.5 py-1">
-                  0{idx + 1} • {col.season}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#21060D]/80 via-transparent to-transparent pointer-events-none" />
+
+                <div className="absolute top-3 left-3 bg-[#FAF7F0]/95 text-[#21060D] text-[9px] uppercase tracking-widest px-2.5 py-1 font-medium shadow-md">
+                  Vol. 0{idx + 1} • {col.season}
+                </div>
+
+                <div className="absolute bottom-3 left-3 right-3 flex justify-between items-center text-xs font-sans text-[#FAF7F0]">
+                  <span className="text-[10px] uppercase tracking-widest text-[#B49A70] font-medium">
+                    {col.looksCount} Curated Looks
+                  </span>
+                  <span className="font-editorial italic text-xs text-[#D8C7AE]">Atelier Paris</span>
                 </div>
               </div>
 
-              <h3 className="font-display text-3xl text-[#FAF7F0]">{col.title}</h3>
-              <p className="font-editorial italic text-base text-[#D8C7AE]">
-                “{col.quote}”
-              </p>
-              <p className="font-sans text-xs text-[#FAF7F0]/70 leading-relaxed font-light">
-                {col.description}
-              </p>
+              <div>
+                <h3 className="font-display text-2xl sm:text-3xl text-[#FAF7F0] font-light leading-snug">
+                  {col.title}
+                </h3>
+                <p className="font-editorial italic text-sm sm:text-base text-[#D8C7AE] mt-0.5 mb-2">
+                  {col.subtitle}
+                </p>
+                <p className="font-sans text-xs text-[#FAF7F0]/75 leading-relaxed font-light mb-4">
+                  {col.description}
+                </p>
 
-              <Link
-                href={`/collections#${col.slug}`}
-                className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#B49A70] pt-2"
-              >
-                <span>View Looks ({col.looksCount})</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+                {/* Palette and Primary Material */}
+                <div className="flex items-center justify-between py-3 border-y border-[#541326]/60 my-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[9px] uppercase tracking-widest text-[#FAF7F0]/50 font-sans">
+                      Palette
+                    </span>
+                    <div className="flex gap-1.5">
+                      {col.palette.map((c, i) => (
+                        <span
+                          key={i}
+                          className="w-3.5 h-3.5 rounded-full border border-white/20"
+                          style={{ backgroundColor: c }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="text-right">
+                    <span className="text-[9px] uppercase tracking-widest text-[#FAF7F0]/50 font-sans block">
+                      Key Material
+                    </span>
+                    <span className="text-xs font-sans text-[#FAF7F0]/80">
+                      {col.materials[0]}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Full-width touch button */}
+                <Link
+                  href={`/collections#${col.slug}`}
+                  className="w-full py-3.5 px-5 bg-[#541326] hover:bg-[#762D42] text-[#FAF7F0] flex items-center justify-between text-xs uppercase tracking-[0.2em] font-sans font-medium transition-colors mt-3"
+                >
+                  <span>Explore Collection Looks</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] text-[#B49A70] font-mono">
+                      ({col.looksCount} Looks)
+                    </span>
+                    <ArrowUpRight className="w-4 h-4 text-[#B49A70]" />
+                  </div>
+                </Link>
+              </div>
             </div>
           ))}
         </div>

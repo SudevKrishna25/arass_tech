@@ -120,7 +120,7 @@ export default function HeroSection() {
     <section
       id="hero"
       ref={containerRef}
-      className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-[#21060D] text-[#FAF7F0] select-none pt-24 pb-12 px-4 sm:px-6 lg:px-8"
+      className="relative min-h-[100svh] min-h-screen flex flex-col justify-between overflow-hidden bg-[#21060D] text-[#FAF7F0] select-none pt-20 sm:pt-24 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8"
       aria-label="Hero Runway"
     >
       {/* Background Cinematic Image with Layered Depth */}
@@ -151,30 +151,30 @@ export default function HeroSection() {
       {/* Top Editorial Metadata Bar */}
       <div
         ref={metadataRef}
-        className="relative z-10 flex flex-wrap items-center justify-between text-[10px] md:text-xs uppercase tracking-[0.3em] text-[#D8C7AE]/80 font-sans border-b border-white/10 pb-4 pt-2"
+        className="relative z-10 flex items-center justify-between text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.25em] text-[#D8C7AE]/80 font-sans border-b border-white/10 pb-3 pt-2"
       >
-        <div className="flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-[#B49A70] animate-pulse" />
+        <div className="flex items-center gap-2 sm:gap-3">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#B49A70] animate-pulse" />
           <span>Automne-Hiver Étude</span>
         </div>
         <div className="hidden sm:block text-[#FAF7F0]/60">
           Paris — Londres — New York
         </div>
-        <div className="font-editorial italic tracking-wider text-sm text-[#B49A70]">
+        <div className="font-editorial italic tracking-wider text-xs sm:text-sm text-[#B49A70]">
           Vol. IV
         </div>
       </div>
 
       {/* Center Cinematic Editorial Composition */}
-      <div className="relative z-10 my-auto py-12 md:py-20 max-w-5xl">
-        <span className="inline-block text-[10px] sm:text-xs uppercase tracking-[0.38em] text-[#B49A70] font-sans font-medium mb-4">
+      <div className="relative z-10 my-auto py-8 sm:py-12 md:py-20 max-w-5xl">
+        <span className="inline-block text-[9px] sm:text-xs uppercase tracking-[0.35em] text-[#B49A70] font-sans font-medium mb-3 sm:mb-4">
           Maison de Mode • Étude 01
         </span>
 
         {/* Staggered Serif Headline with Line Wrappers */}
         <h1
           ref={headlineRef}
-          className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light text-[#FAF7F0] leading-[1.02] tracking-[-0.01em]"
+          className="font-display text-3xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light text-[#FAF7F0] leading-[1.04] tracking-[-0.01em]"
         >
           <span className="block overflow-hidden">
             <span className="line-span inline-block">THE ART OF</span>
@@ -189,12 +189,12 @@ export default function HeroSection() {
         {/* Secondary Editorial Narrative */}
         <div
           ref={subtextRef}
-          className="mt-6 sm:mt-8 max-w-xl text-sm sm:text-base md:text-lg font-sans text-[#FAF7F0]/85 leading-relaxed font-light"
+          className="mt-5 sm:mt-8 max-w-xl text-xs sm:text-base md:text-lg font-sans text-[#FAF7F0]/85 leading-relaxed font-light"
         >
-          <p className="font-editorial italic text-xl sm:text-2xl text-[#D8C7AE] mb-1 font-normal">
+          <p className="font-editorial italic text-lg sm:text-2xl text-[#D8C7AE] mb-1 font-normal">
             “An expression of individuality. A presence beyond seasons.”
           </p>
-          <p className="text-xs sm:text-sm text-[#FAF7F0]/70 font-sans">
+          <p className="text-[11px] sm:text-sm text-[#FAF7F0]/70 font-sans">
             Sculpted forms, architectural silhouettes, and the quiet dignity of
             uncompromising European tailoring.
           </p>
@@ -203,24 +203,24 @@ export default function HeroSection() {
         {/* Call to Actions */}
         <div
           ref={ctaRef}
-          className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6"
+          className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-6 w-full sm:w-auto"
         >
-          <MagneticButton>
+          <MagneticButton className="w-full sm:w-auto">
             <Link
               href="/collections"
               data-cursor="EXPLORE"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#FAF7F0] text-[#21060D] hover:bg-[#D8C7AE] font-sans text-xs uppercase tracking-[0.25em] font-medium transition-all duration-300 shadow-xl shadow-black/40 group"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 bg-[#FAF7F0] text-[#21060D] hover:bg-[#D8C7AE] font-sans text-xs uppercase tracking-[0.25em] font-medium transition-all duration-300 shadow-xl shadow-black/40 group"
             >
               <span>Explore the Collection</span>
               <ArrowUpRight className="w-4 h-4 text-[#541326] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </MagneticButton>
 
-          <MagneticButton>
+          <MagneticButton className="w-full sm:w-auto">
             <Link
               href="/maison"
               data-cursor="MAISON"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 border border-[#FAF7F0]/40 text-[#FAF7F0] hover:border-[#FAF7F0] hover:bg-white/5 font-sans text-xs uppercase tracking-[0.25em] transition-all duration-300"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 border border-[#FAF7F0]/40 text-[#FAF7F0] hover:border-[#FAF7F0] hover:bg-white/5 font-sans text-xs uppercase tracking-[0.25em] transition-all duration-300"
             >
               <span>Discover the Maison</span>
             </Link>
@@ -229,7 +229,7 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom Runway Meta and Scroll Prompt */}
-      <div className="relative z-10 flex items-end justify-between pt-4 border-t border-white/10 text-xs font-sans text-[#FAF7F0]/60">
+      <div className="relative z-10 flex items-end justify-between pt-3 border-t border-white/10 text-xs font-sans text-[#FAF7F0]/60">
         <div className="max-w-xs hidden md:block">
           <p className="font-editorial italic text-sm text-[#D8C7AE]">
             “Elegance, without excess.”
@@ -242,7 +242,7 @@ export default function HeroSection() {
         <a
           href="#philosophy"
           data-cursor="SCROLL"
-          className="flex items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-[#D8C7AE] hover:text-[#FAF7F0] transition-colors group cursor-pointer"
+          className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#D8C7AE] hover:text-[#FAF7F0] transition-colors group cursor-pointer ml-auto md:ml-0"
         >
           <span>Scroll to Discover</span>
           <ArrowDown className="w-3.5 h-3.5 text-[#B49A70] group-hover:translate-y-1 transition-transform duration-300" />

@@ -139,7 +139,7 @@ export default function ContactPage() {
             </div>
 
             {/* Right Column: Appointment & Concierge Form (7 cols) */}
-            <div className="lg:col-span-7 bg-[#F3EBDD]/50 p-8 sm:p-12 border border-[#D8C7AE] shadow-lg">
+            <div className="lg:col-span-7 bg-[#F3EBDD]/50 p-5 sm:p-8 md:p-12 border border-[#D8C7AE] shadow-lg">
               {submitted ? (
                 <div className="text-center py-12 space-y-4">
                   <div className="w-14 h-14 rounded-full bg-[#541326] text-[#B49A70] flex items-center justify-center mx-auto mb-4">

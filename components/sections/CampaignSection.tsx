@@ -47,44 +47,48 @@ export default function CampaignSection() {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
+      const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
       // 1. Expanding Camera Frame on Scroll
       gsap.fromTo(
         expandFrameRef.current,
-        { scale: 0.88, borderRadius: "24px" },
+        { scale: isMobile ? 0.94 : 0.88, borderRadius: isMobile ? "12px" : "24px" },
         {
           scale: 1,
           borderRadius: "0px",
           ease: "power2.out",
           scrollTrigger: {
             trigger: expandFrameRef.current,
-            start: "top 80%",
+            start: "top 85%",
             end: "center center",
             scrub: true,
           },
         }
       );
 
-      // 2. Parallax on Scene Imagery
-      const sceneCards = gsap.utils.toArray<HTMLElement>(".campaign-scene");
-      sceneCards.forEach((card) => {
-        const img = card.querySelector(".campaign-img");
-        if (img) {
-          gsap.fromTo(
-            img,
-            { yPercent: -10 },
-            {
-              yPercent: 10,
-              ease: "none",
-              scrollTrigger: {
-                trigger: card,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: true,
-              },
-            }
-          );
-        }
-      });
+      // 2. Parallax on Scene Imagery (Desktop / Tablet only for smooth 60fps mobile touch)
+      if (!isMobile) {
+        const sceneCards = gsap.utils.toArray<HTMLElement>(".campaign-scene");
+        sceneCards.forEach((card) => {
+          const img = card.querySelector(".campaign-img");
+          if (img) {
+            gsap.fromTo(
+              img,
+              { yPercent: -10 },
+              {
+                yPercent: 10,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: card,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: true,
+                },
+              }
+            );
+          }
+        });
+      }
     }, containerRef);
 
     return () => ctx.revert();
@@ -115,7 +119,7 @@ export default function CampaignSection() {
           </span>
           <h2
             ref={headlineRef}
-            className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-[#FAF7F0] leading-[1.05] tracking-tight"
+            className="font-display text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-[#FAF7F0] leading-[1.05] tracking-tight"
           >
             AN ATTITUDE.
             <br />
@@ -124,7 +128,7 @@ export default function CampaignSection() {
             </span>
           </h2>
 
-          <p className="mt-6 font-sans text-sm sm:text-base text-[#FAF7F0]/75 font-light leading-relaxed max-w-2xl">
+          <p className="mt-4 sm:mt-6 font-sans text-xs sm:text-base text-[#FAF7F0]/75 font-light leading-relaxed max-w-2xl">
             Captured under the cinematic studio lights of our Paris atelier, the
             campaign celebrates the quiet tension between monolithic tailoring
             and sensual fluid drape.
@@ -134,7 +138,7 @@ export default function CampaignSection() {
         {/* Expanding Hero Stage */}
         <div
           ref={expandFrameRef}
-          className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden shadow-2xl bg-[#300914] border border-[#541326]/60 mb-28 will-change-transform"
+          className="relative aspect-[16/10] sm:aspect-[21/9] w-full overflow-hidden shadow-2xl bg-[#300914] border border-[#541326]/60 mb-16 sm:mb-28 will-change-transform"
         >
           <Image
             src="/images/campaigns/campaign-act1.jpg"
@@ -144,23 +148,23 @@ export default function CampaignSection() {
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#21060D]/90 via-[#21060D]/30 to-transparent" />
-          <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 text-xs text-[#FAF7F0]">
+          <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-2 sm:gap-4 text-xs text-[#FAF7F0]">
             <div>
-              <p className="text-[10px] uppercase tracking-widest text-[#B49A70] font-sans">
+              <p className="text-[9px] sm:text-[10px] uppercase tracking-widest text-[#B49A70] font-sans">
                 Campagne Principale
               </p>
-              <h3 className="font-display text-2xl sm:text-4xl text-[#F3EBDD]">
+              <h3 className="font-display text-xl sm:text-4xl text-[#F3EBDD]">
                 THE BEAUTY OF RESTRAINT.
               </h3>
             </div>
-            <p className="font-editorial italic text-base text-[#D8C7AE]">
+            <p className="font-editorial italic text-xs sm:text-base text-[#D8C7AE]">
               Paris Atelier • Rue de la Paix
             </p>
           </div>
         </div>
 
         {/* Multi-Scene Cinematic Sequence */}
-        <div className="space-y-28 md:space-y-40">
+        <div className="space-y-16 sm:space-y-28 md:space-y-40">
           {CAMPAIGN_SCENES.map((scene, idx) => {
             const isEven = idx % 2 === 1;
             return (

@@ -38,7 +38,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-[500] flex items-center justify-center p-3 sm:p-6 md:p-10"
+      className="fixed inset-0 z-[500] flex items-center justify-center p-2 sm:p-6 md:p-10"
       role="dialog"
       aria-modal="true"
       aria-labelledby="product-modal-title"
@@ -50,19 +50,19 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
       />
 
       {/* Modal Dialog Card */}
-      <div className="relative z-10 w-full max-w-5xl max-h-[92vh] bg-[#FAF7F0] text-[#211719] shadow-2xl overflow-y-auto border border-[#B49A70]/30 flex flex-col md:flex-row">
+      <div className="relative z-10 w-full max-w-5xl max-h-[92svh] max-h-[92vh] bg-[#FAF7F0] text-[#211719] shadow-2xl overflow-y-auto border border-[#B49A70]/30 flex flex-col md:flex-row">
         {/* Close Button */}
         <button
           onClick={onClose}
           aria-label="Close dialog"
-          className="absolute top-4 right-4 z-20 p-2 bg-[#21060D] text-[#FAF7F0] hover:bg-[#541326] transition-colors"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-30 p-2.5 sm:p-2 bg-[#21060D] text-[#FAF7F0] hover:bg-[#541326] transition-colors shadow-lg cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Left: Imagery Gallery */}
-        <div className="w-full md:w-1/2 p-6 md:p-8 bg-[#F3EBDD] flex flex-col gap-4">
-          <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#21060D]">
+        <div className="w-full md:w-1/2 p-4 sm:p-6 md:p-8 bg-[#F3EBDD] flex flex-col gap-3 sm:gap-4">
+          <div className="relative aspect-[4/5] sm:aspect-[3/4] max-h-[44vh] sm:max-h-none w-full overflow-hidden bg-[#21060D]">
             <Image
               src={selectedImage || product.image}
               alt={product.name}

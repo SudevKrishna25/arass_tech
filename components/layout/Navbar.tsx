@@ -76,12 +76,12 @@ export default function Navbar() {
           <Link
             href="/"
             data-cursor="ORRÉ"
-            className="group flex flex-col items-center justify-center text-center px-4"
+            className="group flex flex-col items-start md:items-center justify-center text-left md:text-center py-1"
           >
-            <span className="font-display text-2xl sm:text-3xl md:text-3xl lg:text-4xl tracking-[0.22em] text-[#FAF7F0] font-normal transition-transform duration-500 group-hover:scale-105">
+            <span className="font-display text-2xl sm:text-3xl md:text-3xl lg:text-4xl tracking-[0.2em] sm:tracking-[0.22em] text-[#FAF7F0] font-normal transition-transform duration-500 group-hover:scale-105">
               ORRÉ
             </span>
-            <span className="text-[8px] uppercase tracking-[0.35em] text-[#D8C7AE]/70 -mt-0.5 group-hover:text-[#B49A70] transition-colors">
+            <span className="text-[8px] uppercase tracking-[0.32em] sm:tracking-[0.35em] text-[#D8C7AE]/70 -mt-0.5 group-hover:text-[#B49A70] transition-colors">
               Maison de Mode
             </span>
           </Link>

@@ -60,7 +60,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   return (
     <div
       ref={menuRef}
-      className="fixed inset-0 z-[600] bg-[#21060D] text-[#FAF7F0] flex flex-col justify-between p-6 sm:p-10 select-none overflow-y-auto"
+      className="fixed inset-0 z-[600] bg-[#21060D] text-[#FAF7F0] flex flex-col justify-between p-6 sm:p-10 select-none overflow-y-auto min-h-[100svh] min-h-screen pb-10"
       role="dialog"
       aria-modal="true"
       aria-label="Navigation Menu"
